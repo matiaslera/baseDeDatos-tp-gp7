@@ -1,37 +1,36 @@
 <h1>ABM - Encuesta</h1>
-<mat-card-content>
-  <div>
-    <mat-form-field appearance="outline">
-      <mat-label>Tipo de Contenido</mat-label>
-      <input matInput placeholder="tipo de contenido" autofocus>
-    </mat-form-field>
-    <mat-form-field appearance="outline">
-      <mat-label>Nombre de Contenido</mat-label>
-      <input matInput type="text" placeholder="Nombre" >
-    </mat-form-field>
-    <button mat-flat-button color="primary">Buscar</button>
-  </div>
-</mat-card-content>
 
 <mat-table [dataSource]="dataSource" class="mat-elevation-z8">
-    <!-- Position Column -->
-    <ng-container matColumnDef="name">
-      <mat-header-cell *matHeaderCellDef> Nombre </mat-header-cell>
-      <mat-cell *matCellDef="let element"> {{element.name}} </mat-cell>
-    </ng-container>
-  
-    <!-- Name Column -->
-    <ng-container matColumnDef="description">
-      <mat-header-cell *matHeaderCellDef> Descripcion </mat-header-cell>
-      <mat-cell *matCellDef="let element"> {{element.description}} </mat-cell>
-    </ng-container>
-  
-    <!-- Weight Column -->
-    <ng-container matColumnDef="action">
-      <mat-header-cell *matHeaderCellDef> Acciones </mat-header-cell>
-      <mat-cell *matCellDef="let element"> {{element.action}} </mat-cell>
-    </ng-container>
-  
-    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
-  </mat-table>
+  <!-- Position Column -->
+  <ng-container matColumnDef="name">
+    <mat-header-cell *matHeaderCellDef> Nombre </mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{element.name}} </mat-cell>
+  </ng-container>
+
+  <!-- Name Column -->
+  <ng-container matColumnDef="description">
+    <mat-header-cell *matHeaderCellDef> Descripcion </mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{element.description}} </mat-cell>
+  </ng-container>
+
+  <!-- Weight Column -->
+  <ng-container matColumnDef="action">
+    <mat-header-cell *matHeaderCellDef> Acciones </mat-header-cell>
+    <mat-cell *matCellDef="let element">
+      <div class="deleteAndEdit">
+      <button mat-raised-button color="primary">
+        <mat-icon aria-hidden="false" aria-label="Example home icon">edit
+        </mat-icon>
+      </button>
+      <button mat-raised-button color="primary">
+        <mat-icon aria-hidden="false" aria-label="Example home icon">delete
+        </mat-icon>
+      </button>
+    </div> </mat-cell>
+  </ng-container>
+
+  <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+  <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+</mat-table>
+<div class="buttonNew">
+  <button mat-raised-button color="primary">Nuevo</button></div>
