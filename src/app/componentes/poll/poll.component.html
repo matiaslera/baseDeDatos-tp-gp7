@@ -3,13 +3,13 @@
 <mat-table [dataSource]="dataSource" class="mat-elevation-z8">
   <!-- Position Column -->
   <ng-container matColumnDef="name">
-    <mat-header-cell *matHeaderCellDef> Nombre </mat-header-cell>
+    <mat-header-cell *matHeaderCellDef> Usuario </mat-header-cell>
     <mat-cell *matCellDef="let element"> {{element.name}} </mat-cell>
   </ng-container>
 
   <!-- Name Column -->
   <ng-container matColumnDef="description">
-    <mat-header-cell *matHeaderCellDef> Descripcion </mat-header-cell>
+    <mat-header-cell *matHeaderCellDef> Puntaje </mat-header-cell>
     <mat-cell *matCellDef="let element"> {{element.description}} </mat-cell>
   </ng-container>
 
@@ -23,7 +23,7 @@
         </mat-icon>
       </button>
       <button mat-raised-button color="primary">
-        <mat-icon aria-hidden="false" aria-label="Example home icon">delete
+        <mat-icon color="warn"aria-hidden="false" aria-label="Example home icon">delete
         </mat-icon>
       </button>
     </div> </mat-cell>

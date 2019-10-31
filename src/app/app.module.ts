@@ -8,6 +8,7 @@ import { MaterialModule } from './material.module';
 import { HomeComponent } from './componentes/home/home.component';
 import { ReportComponent } from './componentes/report/report.component';
 import { PollComponent } from './componentes/poll/poll.component';
+import { ContentsComponent } from './componentes/contents/contents.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,7 @@ import { PollComponent } from './componentes/poll/poll.component';
     ReportComponent,
     PollComponent,
     HomeComponent,
-    
+    ContentsComponent
   ],
   imports: [
     BrowserModule,

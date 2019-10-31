@@ -1,3 +1,55 @@
-<p>
-  report works!
-</p>
+<mat-card-content class="contentFecha">
+  <div>
+    <h3>Rango de fechas</h3>
+    <mat-form-field appearance="outline">
+
+      <mat-label>Desde</mat-label>
+      <input matInput placeholder="Desde" autofocus class="inputDesde">
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Hasta</mat-label>
+      <input matInput type="text" placeholder="Hasta" class="inputHasta">
+    </mat-form-field>
+    
+      <button mat-raised-button color="primary">Aplicar</button>
+  </div>
+</mat-card-content>
+
+<mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+    <!-- Position Column -->
+    <ng-container matColumnDef="name">
+      <mat-header-cell *matHeaderCellDef> Titulo </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.name}} </mat-cell>
+    </ng-container>
+  
+    <!-- Name Column -->
+    <ng-container matColumnDef="extension">
+      <mat-header-cell *matHeaderCellDef> Extension </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.extension}} </mat-cell>
+    </ng-container>
+  
+    <!-- Weight Column -->
+    <ng-container matColumnDef="highScore">
+      <mat-header-cell *matHeaderCellDef> Puntaje Mas Alto </mat-header-cell>
+      <mat-cell *matCellDef="let element">
+          {{element.highScore}}
+      </mat-cell>
+    </ng-container>
+  
+    <ng-container matColumnDef="averageScore">
+        <mat-header-cell *matHeaderCellDef> Puntaje Mas Alto </mat-header-cell>
+        <mat-cell *matCellDef="let element">
+            {{element.averageScore}}
+        </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="lowScore">
+          <mat-header-cell *matHeaderCellDef> Puntaje Mas Alto </mat-header-cell>
+          <mat-cell *matCellDef="let element">
+              {{element.lowScore}}
+          </mat-cell>
+        </ng-container>
+    
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+  </mat-table>

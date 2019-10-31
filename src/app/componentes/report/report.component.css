@@ -1,0 +1,12 @@
+mat-card-content{
+    display: flex;
+}
+
+h3{
+    margin: 1rem 1rem 1rem  1rem;
+}
+
+.inputDesde, .inputHasta{
+margin: auto;
+width: 1rem;
+}
