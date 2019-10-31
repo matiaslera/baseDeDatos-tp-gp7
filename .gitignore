@@ -9,6 +9,7 @@ frontend/bazel-out
 
 # dependencies
 frontend/node_modules
+backend/node_modules
 
 # profiling files
 frontend/chrome-profiler-events*.json
@@ -44,3 +45,5 @@ frontend/typings
 # System Files
 frontend/.DS_Store
 frontendThumbs.db
+
+backend/build
