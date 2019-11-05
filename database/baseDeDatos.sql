@@ -1,4 +1,4 @@
-ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY '1234'
+ALTER USER 'root'@'localhost' IDENTIFIED BY '1234';
 CREATE DATABASE  IF NOT EXISTS mydb /*!40100 DEFAULT CHARACTER SET utf8 */ /*!80016 DEFAULT ENCRYPTION='N' */;
 USE mydb;
 -- MySQL dump 10.13  Distrib 8.0.18, for Win64 (x86_64)
@@ -108,6 +108,7 @@ DROP TABLE IF EXISTS `descarga`;
 CREATE TABLE `descarga` (
   `ID_Descarga` int(11) NOT NULL,
   `velocidad_transfer` decimal(10,0) DEFAULT NULL,
+  `fecha_descarga` DATE,
   `Contenido_ID_Contenido` int(11) NOT NULL,
   `Usuario_ID_Usuario` int(11) NOT NULL,
   PRIMARY KEY (`ID_Descarga`),
