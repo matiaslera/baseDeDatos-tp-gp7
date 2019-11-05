@@ -26,7 +26,7 @@ DROP TABLE IF EXISTS `categoria`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `categoria` (
-  `Id_categoria` int(11) NOT NULL,
+  `Id_categoria` int(11) NOT NULL AUTO_INCREMENT,
   `descripcion` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`Id_categoria`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -49,7 +49,7 @@ DROP TABLE IF EXISTS `comentario`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE comentario (
-  `ID_Comentario` int(11) NOT NULL,
+  `ID_Comentario` int(11) NOT NULL AUTO_INCREMENT,
   `descripcion` varchar(45) DEFAULT NULL,
   `titulo` varchar(45) DEFAULT NULL,
   `apodo` varchar(45) DEFAULT NULL,
@@ -80,7 +80,7 @@ DROP TABLE IF EXISTS contenido;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE contenido (
-  `ID_Contenido` int(11) NOT NULL,
+  `ID_Contenido` int(11) NOT NULL AUTO_INCREMENT,
   `titulo` varchar(45) DEFAULT NULL,
   `fecha_publicacion` date DEFAULT NULL,
   `extension_archivo` varchar(45) DEFAULT NULL,
@@ -106,7 +106,7 @@ DROP TABLE IF EXISTS `descarga`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `descarga` (
-  `ID_Descarga` int(11) NOT NULL,
+  `ID_Descarga` int(11) NOT NULL AUTO_INCREMENT,
   `velocidad_transfer` decimal(10,0) DEFAULT NULL,
   `fecha_descarga` DATE,
   `Contenido_ID_Contenido` int(11) NOT NULL,
@@ -136,7 +136,7 @@ DROP TABLE IF EXISTS `encuesta`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `encuesta` (
-  `Id_Encuesta` int(11) NOT NULL,
+  `Id_Encuesta` int(11) NOT NULL AUTO_INCREMENT,
   `puntaje` decimal(10,0) DEFAULT NULL,
   `resumen_positivo` varchar(45) DEFAULT NULL,
   `resumen_negativo` varchar(45) DEFAULT NULL,
@@ -191,7 +191,7 @@ DROP TABLE IF EXISTS `reproduccion`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `reproduccion` (
-  `ID_Reproduccion` int(11) NOT NULL,
+  `ID_Reproduccion` int(11) NOT NULL AUTO_INCREMENT,
   `fecha_inicio` date DEFAULT NULL,
   `hora_inicio` time DEFAULT NULL,
   `hora_fin` time DEFAULT NULL,
@@ -221,7 +221,7 @@ DROP TABLE IF EXISTS `usuario`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `usuario` (
-  `ID_Usuario` int(11) NOT NULL,
+  `ID_Usuario` int(11) NOT NULL AUTO_INCREMENT,
   `nombre` varchar(45) DEFAULT NULL,
   `apellido` varchar(45) DEFAULT NULL,
   `fecha_nac` varchar(45) DEFAULT NULL,

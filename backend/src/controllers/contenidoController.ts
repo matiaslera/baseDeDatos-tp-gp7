@@ -3,46 +3,45 @@ import pool from '../database'
 import { promises } from 'fs';
 
 class UsuarioController {
-    public async list(req: Request, res: Response) {
+    public async listOfEncuesta(req: Request, res: Response) {
         await pool.query('SELECT * FROM encuesta',
             function (err, result, fields) { if (err) throw err; res.json(result); });
     }
 
 
-    public async create(req: Request, res: Response): Promise<void> {
+    public async createEncuesta(req: Request, res: Response): Promise<void> {
         try{
-        await pool.query('INSERT INTO usuario set ?', [req.body])
-        res.json({ message: ' El Usuario Fue Guardado ' })
+        await pool.query('INSERT INTO encuesta set ?', [req.body])
+        res.json({ message: 'La encuesta fue guardada ' })
 
         }catch(e){
-            console.log("salio todo mal",e)
+            console.log("Error al guardar la encuesta: ",e)
             res.status(500)
         }
     }
 
-    public async delete(req: Request, res: Response): Promise<void> {
-        const { id } = req.params; await pool.query('DELETE FROM usuario where id=?', [id],
+    public async deleteEncuesta(req: Request, res: Response): Promise<void> {
+        const { id } = req.params; await pool.query('DELETE FROM encuesta where id_Encuesta=?', [id],
             function (err, result, fields) {
                 if (err) throw err; {
-                    return res.json({ message: 'el usuario fue eliminado' })
+                    return res.json({ message: 'La encuesta fue eliminada' })
                 }
-
             })
     }
-    public async update(req: Request, res: Response): Promise<void> {
-        const { id } = req.params; await pool.query('UPDATE usuario set ? where id=?', [req.body,id],
+    public async updateEncuesta(req: Request, res: Response): Promise<void> {
+        const { id } = req.params; await pool.query('UPDATE encuesta set ? where id_Encuesta=?', [req.body,id],
         function (err, result, fields) {
             if (err) throw err; {
-                return res.json({ message: 'el usuario fue Actualizado' })
+                return res.json({ message: 'La encuesta fue Actualizada' })
             }
 
         })
     }
-    public async getOne(req: Request, res: Response): Promise<any> {
+    public async getOneEncuesta(req: Request, res: Response): Promise<any> {
         const { id } = req.params; await pool.query('SELECT * FROM encuesta where id_Encuesta=?', [id],
             function (err, result, fields) {
                 if (err) throw err; if (result.length > 0) { return res.json(result[0]); }
-                res.status(404).json({ text: "el juego no existe" });
+                res.status(404).json({ text: "La encuesta no existe" });
             })
     }
 

@@ -8,11 +8,11 @@ class UsuarioRoutes {
     }
 
     config(): void {
-        this.router.get('/', usuarioController.list)
-        this.router.get('/:id', usuarioController.getOne)
-        this.router.post('/', usuarioController.create)
-        this.router.put('/:id', usuarioController.update)
-        this.router.delete('/:id', usuarioController.delete)
+        this.router.get('/', usuarioController.listOfEncuesta)
+        this.router.get('/:id', usuarioController.getOneEncuesta)
+        this.router.post('/', usuarioController.createEncuesta)
+        this.router.put('/:id', usuarioController.updateEncuesta)
+        this.router.delete('/:id', usuarioController.deleteEncuesta)
     }
 }
 
