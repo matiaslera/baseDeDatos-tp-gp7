@@ -9,6 +9,7 @@ frontend/bazel-out
 
 # dependencies
 frontend/node_modules
+backend/build
 backend/node_modules
 
 # profiling files
@@ -46,4 +47,4 @@ frontend/typings
 frontend/.DS_Store
 frontendThumbs.db
 
-backend/build
+backend/.build

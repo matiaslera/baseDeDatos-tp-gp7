@@ -1,19 +1,20 @@
-import {Router} from "express"
-import { contenidoController } from "../controllers/contenidoController"
+import { Router } from 'express'
+import UsuarioController, { usuarioController } from '../controllers/contenidoController'
 
-class ContenidoRoutes{
-    public router: Router = Router()
-    constructor(){
+class UsuarioRoutes {
+    router: Router = Router()
+    constructor() {
         this.config()
     }
-    config():void{
-        this.router.get("/",contenidoController.list)
-        this.router.get("/:id",contenidoController.getOne)
-        this.router.post("/", contenidoController.create)
-        this.router.put("/:id", contenidoController.update )
-        this.router.delete("/:id", contenidoController.delete )
 
+    config(): void {
+        this.router.get('/', usuarioController.list)
+        this.router.get('/:id', usuarioController.getOne)
+        this.router.post('/', usuarioController.create)
+        this.router.put('/:id', usuarioController.update)
+        this.router.delete('/:id', usuarioController.delete)
     }
 }
-const indexRoutes = new ContenidoRoutes()
-export default indexRoutes.router
+
+const usuarioRoutes = new UsuarioRoutes()
+export default usuarioRoutes.router

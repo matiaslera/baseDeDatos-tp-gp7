@@ -1,8 +1,11 @@
-import {Request, Response} from "express"
+import { Request , Response } from 'express'
+
+
 class IndexController {
-   public index (req: Request, res:Response){
-        res.send("hessllo")
-    } 
+  public index  (req: Request, res: Response) {
+    res.json({text: 'Api is /api/usuario'})
+   }
+   
 }
 
-export const indexController = new IndexController() 
+export const indexController = new IndexController()
