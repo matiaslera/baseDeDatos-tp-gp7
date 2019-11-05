@@ -1,9 +1,9 @@
 ALTER USER 'root'@'localhost' IDENTIFIED BY '1234';
-CREATE DATABASE  IF NOT EXISTS mydb /*!40100 DEFAULT CHARACTER SET utf8 */ /*!80016 DEFAULT ENCRYPTION='N' */;
-USE mydb;
+CREATE DATABASE  IF NOT EXISTS tp_grupo_7 /*!40100 DEFAULT CHARACTER SET utf8 */ /*!80016 DEFAULT ENCRYPTION='N' */;
+USE tp_grupo_7;
 -- MySQL dump 10.13  Distrib 8.0.18, for Win64 (x86_64)
 --
--- Host: 127.0.0.1    Database: mydb
+-- Host: 127.0.0.1    Database: tp_grupo_7
 -- ------------------------------------------------------
 -- Server version	8.0.18
 
