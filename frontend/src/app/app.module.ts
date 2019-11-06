@@ -12,6 +12,7 @@ import { DownloadComponent } from './componentes/download/download.component';
 import { EditPollComponent } from './componentes/editPoll/editPoll.component';
 import { NewButtonComponent } from './componentes/newButton/newButton.component';
 import { AdminOfPollComponent } from './componentes/adminOfPoll/adminOfPoll.component';
+import { ToolbarComponent } from './componentes/toolbar/toolbar.component';
 
 @NgModule({
    declarations: [
@@ -23,6 +24,7 @@ import { AdminOfPollComponent } from './componentes/adminOfPoll/adminOfPoll.comp
       EditPollComponent,
       NewButtonComponent,
       AdminOfPollComponent,
+      ToolbarComponent
    ],
    imports: [
       BrowserModule,

@@ -2,8 +2,6 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './componentes/home/home.component';
 import { ReportComponent } from './componentes/report/report.component';
-import { PollComponent } from './componentes/poll/poll.component';
-import { ContentsComponent } from './componentes/contents/contents.component';
 import { DownloadComponent } from './componentes/download/download.component';
 import { EditPollComponent } from './componentes/editPoll/editPoll.component';
 import { NewButtonComponent } from './componentes/newButton/newButton.component';
