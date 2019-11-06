@@ -33,7 +33,7 @@ class EncuestasController {
     }
     public async updateEncuesta(req: Request, res: Response): Promise<void> {
         const { id } = req.params;
-        await pool.query('UPDATE encuesta set ? where id_encuesta=?', [req.body, id],
+        await pool.query('UPDATE encuestas set ? where id_encuesta=?', [req.body, id],
             function (err, result, fields) {
                 if (err) throw err; {
                     return res.json('La encuesta fue Actualizada')
