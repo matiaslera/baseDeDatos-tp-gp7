@@ -8,20 +8,20 @@ class UsuarioController {
             function (err, result, fields) { if (err) throw err; res.json(result); });
     }
 
-
     public async createEncuesta(req: Request, res: Response): Promise<void> {
-        try{
-        await pool.query('INSERT INTO encuesta set ?', [req.body])
-        res.json({ message: 'La encuesta fue guardada ' })
+        try {
+            await pool.query('INSERT INTO encuesta set ?', [req.body])
+            res.json({ message: 'La encuesta fue guardada ' })
 
-        }catch(e){
-            console.log("Error al guardar la encuesta: ",e)
+        } catch (e) {
+            console.log("Error al guardar la encuesta: ", e)
             res.status(500)
         }
     }
 
     public async deleteEncuesta(req: Request, res: Response): Promise<void> {
-        const { id } = req.params; await pool.query('DELETE FROM encuesta where id_Encuesta=?', [id],
+        const { id } = req.params;
+        await pool.query('DELETE FROM encuesta where id_Encuesta=?', [id],
             function (err, result, fields) {
                 if (err) throw err; {
                     return res.json({ message: 'La encuesta fue eliminada' })
@@ -29,16 +29,18 @@ class UsuarioController {
             })
     }
     public async updateEncuesta(req: Request, res: Response): Promise<void> {
-        const { id } = req.params; await pool.query('UPDATE encuesta set ? where id_Encuesta=?', [req.body,id],
-        function (err, result, fields) {
-            if (err) throw err; {
-                return res.json({ message: 'La encuesta fue Actualizada' })
-            }
+        const { id } = req.params;
+        await pool.query('UPDATE encuesta set ? where id_Encuesta=?', [req.body, id],
+            function (err, result, fields) {
+                if (err) throw err; {
+                    return res.json({ message: 'La encuesta fue Actualizada' })
+                }
 
-        })
+            })
     }
     public async getOneEncuesta(req: Request, res: Response): Promise<any> {
-        const { id } = req.params; await pool.query('SELECT * FROM encuesta where id_Encuesta=?', [id],
+        const { id } = req.params
+        await pool.query('SELECT * FROM encuesta where Descarga_ID_Descarga=?', [id],
             function (err, result, fields) {
                 if (err) throw err; if (result.length > 0) { return res.json(result[0]); }
                 res.status(404).json({ text: "La encuesta no existe" });
