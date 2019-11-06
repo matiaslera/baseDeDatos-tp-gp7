@@ -1,0 +1,23 @@
+.matCardPoll{
+    display: flex;
+    width: 40%;
+    margin: auto;
+    margin-top:1rem;
+    -webkit-box-shadow: 18px -12px 49px -7px rgba(0,0,0,0.75);
+    -moz-box-shadow: 18px -12px 49px -7px rgba(0,0,0,0.75);
+    box-shadow: 18px -12px 49px -7px rgba(0,0,0,0.75);
+}
+
+.cardresumen{
+    margin: auto;
+    width: 50rem;
+    text-align: center;
+}
+
+mat-card-footer{
+    margin:auto
+}
+
+.editDeleteButton{
+    margin-right: 1rem;
+}
