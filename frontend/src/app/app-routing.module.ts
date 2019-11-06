@@ -10,7 +10,7 @@ import { DownloadComponent } from './componentes/download/download.component';
 const routes: Routes = [
   {path: 'home', component: HomeComponent},
   {path: 'home/descargas', component: DownloadComponent},
-  {path: 'home/contenidos/encuesta', component: PollComponent},
+  {path: 'home/descargas/encuesta', component: PollComponent},
   {path: 'home/reporte', component: ReportComponent},
   { path: '**', redirectTo: 'home', pathMatch: 'full' },
 ];

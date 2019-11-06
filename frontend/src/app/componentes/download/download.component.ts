@@ -22,12 +22,12 @@ const ELEMENT_CONTENS: ContensElement[] = [
 })
 export class DownloadComponent {
 
-  displayedColumns: string[] = ['title', 'extension', 'action'];
+  displayedColumns: string[] = ['title', 'extension', 'fecha', "action"];
   dataSource = ELEMENT_CONTENS;
   constructor(private router: Router) { }
    
   navegatePoll(){
-    this.router.navigateByUrl('home/contenidos/encuesta');
+    this.router.navigateByUrl('home/descargas/encuesta');
   }
 
 }

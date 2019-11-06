@@ -24,13 +24,23 @@
   </ng-container>
 
   <!-- Weight Column -->
-  <ng-container matColumnDef="action">
+  <ng-container matColumnDef="fecha">
     <mat-header-cell *matHeaderCellDef> Fecha Descargado </mat-header-cell>
     <mat-cell *matCellDef="let element">
         {{element.fecha}}
       </mat-cell>
   </ng-container>
 
+  <ng-container matColumnDef="action">
+      <mat-header-cell *matHeaderCellDef> Accion </mat-header-cell>
+      <mat-cell *matCellDef="let element">
+        <div class="deleteAndEdit">
+        <button mat-raised-button color="primary" (click)="navegatePoll()">
+          <mat-icon aria-hidden="false" aria-label="Example home icon">poll
+          </mat-icon>
+        </button>
+      </div> </mat-cell>
+    </ng-container>
   <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
   <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
 </mat-table>
