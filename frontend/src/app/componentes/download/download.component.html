@@ -1,0 +1,36 @@
+<div class="cardFilter" >
+  <div class="inputFilter">
+    <mat-form-field appearance="outline">
+      <mat-label>Filtrado por nombre</mat-label>
+      <input matInput placeholder="eg: javi" autofocus >
+    </mat-form-field>
+  </div>
+    <mat-card-footer>
+        <button class="buttonBuscar" mat-flat-button color="primary">Buscar</button>
+      </mat-card-footer>
+ </div>
+
+<mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+  <!-- Position Column -->
+  <ng-container matColumnDef="title">
+    <mat-header-cell *matHeaderCellDef> Nombre </mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{element.title}} </mat-cell>
+  </ng-container>
+
+  <!-- Name Column -->
+  <ng-container matColumnDef="extension">
+    <mat-header-cell *matHeaderCellDef> Extension </mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{element.extension}} </mat-cell>
+  </ng-container>
+
+  <!-- Weight Column -->
+  <ng-container matColumnDef="action">
+    <mat-header-cell *matHeaderCellDef> Fecha Descargado </mat-header-cell>
+    <mat-cell *matCellDef="let element">
+        {{element.fecha}}
+      </mat-cell>
+  </ng-container>
+
+  <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+  <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+</mat-table>

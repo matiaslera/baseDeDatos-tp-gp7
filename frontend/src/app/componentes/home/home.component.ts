@@ -14,7 +14,7 @@ export class HomeComponent implements OnInit {
 
   constructor(private router: Router) { }
   navigateToPoll() {
-    this.router.navigateByUrl('home/contenidos');
+    this.router.navigateByUrl('home/descargas');
   }
 
   navegateToreport(){

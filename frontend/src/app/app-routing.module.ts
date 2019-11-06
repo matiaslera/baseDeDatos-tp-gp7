@@ -4,11 +4,12 @@ import { HomeComponent } from './componentes/home/home.component';
 import { ReportComponent } from './componentes/report/report.component';
 import { PollComponent } from './componentes/poll/poll.component';
 import { ContentsComponent } from './componentes/contents/contents.component';
+import { DownloadComponent } from './componentes/download/download.component';
 
 
 const routes: Routes = [
   {path: 'home', component: HomeComponent},
-  {path: 'home/contenidos', component: ContentsComponent},
+  {path: 'home/descargas', component: DownloadComponent},
   {path: 'home/contenidos/encuesta', component: PollComponent},
   {path: 'home/reporte', component: ReportComponent},
   { path: '**', redirectTo: 'home', pathMatch: 'full' },

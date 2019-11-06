@@ -9,6 +9,7 @@ import { HomeComponent } from './componentes/home/home.component';
 import { ReportComponent } from './componentes/report/report.component';
 import { PollComponent } from './componentes/poll/poll.component';
 import { ContentsComponent } from './componentes/contents/contents.component';
+import { DownloadComponent } from './componentes/download/download.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { ContentsComponent } from './componentes/contents/contents.component';
     ReportComponent,
     PollComponent,
     HomeComponent,
-    ContentsComponent
+    ContentsComponent,
+    DownloadComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,18 @@
+.cardFilter{
+    display: flex;
+    
+}
+
+.inputFilter{
+    margin: auto;
+} 
+
+mat-form-field{
+    width: 40rem;
+    margin-top: 1rem;
+}
+
+mat-card-footer{
+    text-align: right;
+    margin: auto;
+}
