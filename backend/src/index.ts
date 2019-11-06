@@ -1,6 +1,6 @@
 import express, { Application } from 'express';
 import indexRoutes from './routes/indexRoutes'
-import usuarioRoutes from './routes/contenidoRoutes'
+import encuestasRoutes from './routes/EncuestasRoutes'
 import descargasRoutes from './routes/descargasRoutes'
 
 import morgan from 'morgan'
@@ -23,7 +23,7 @@ class Server {
 
     route(): void {
         this.app.use('/', indexRoutes)
-        this.app.use('/encuestas', usuarioRoutes)
+        this.app.use('/encuestas', encuestasRoutes)
         this.app.use('/descargas', descargasRoutes)
     }
     start(): void {

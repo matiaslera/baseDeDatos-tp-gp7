@@ -2,7 +2,7 @@ import { Request, Response } from 'express'
 import pool from '../database'
 import { promises } from 'fs';
 
-class UsuarioController {
+class EncuestasController {
     public async listOfEncuesta(req: Request, res: Response) {
         await pool.query('SELECT * FROM encuestas',
             function (err, result, fields) { if (err) throw err; res.json(result); });
@@ -51,5 +51,5 @@ class UsuarioController {
 
 
 
-export const usuarioController = new UsuarioController()
-export default usuarioController
+export const encuestasController = new EncuestasController()
+export default encuestasController
