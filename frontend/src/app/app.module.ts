@@ -8,27 +8,31 @@ import { MaterialModule } from './material.module';
 import { HomeComponent } from './componentes/home/home.component';
 import { ReportComponent } from './componentes/report/report.component';
 import { PollComponent } from './componentes/poll/poll.component';
-import { ContentsComponent } from './componentes/contents/contents.component';
 import { DownloadComponent } from './componentes/download/download.component';
 import { EditPollComponent } from './componentes/editPoll/editPoll.component';
+import { NewButtonComponent } from './componentes/newButton/newButton.component';
+import { AdminOfPollComponent } from './componentes/adminOfPoll/adminOfPoll.component';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    ReportComponent,
-    PollComponent,
-    HomeComponent,
-    ContentsComponent,
-    DownloadComponent,
-    EditPollComponent
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    BrowserAnimationsModule,
-    MaterialModule
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
+   declarations: [
+      AppComponent,
+      ReportComponent,
+      PollComponent,
+      HomeComponent,
+      DownloadComponent,
+      EditPollComponent,
+      NewButtonComponent,
+      AdminOfPollComponent,
+   ],
+   imports: [
+      BrowserModule,
+      AppRoutingModule,
+      BrowserAnimationsModule,
+      MaterialModule
+   ],
+   providers: [],
+   bootstrap: [
+      AppComponent
+   ]
 })
 export class AppModule { }

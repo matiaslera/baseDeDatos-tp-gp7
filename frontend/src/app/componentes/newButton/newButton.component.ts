@@ -3,12 +3,11 @@ import { MatDialog } from '@Angular/material';
 import { AdminOfPollComponent } from '../adminOfPoll/adminOfPoll.component';
 
 @Component({
-  selector: 'app-editPoll',
-  templateUrl: './editPoll.component.html',
-  styleUrls: ['./editPoll.component.css']
+  selector: 'app-newButton',
+  templateUrl: './newButton.component.html',
+  styleUrls: ['./newButton.component.css']
 })
-export class EditPollComponent {
-
+export class NewButtonComponent {
 
   constructor(public dialog: MatDialog){}
   openNewPoll(){
@@ -20,5 +19,4 @@ export class EditPollComponent {
       console.log('The dialog was closed');
     });
   }
-
 }

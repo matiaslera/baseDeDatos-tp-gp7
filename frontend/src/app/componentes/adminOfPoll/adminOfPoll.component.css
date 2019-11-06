@@ -1,0 +1,14 @@
+.title{
+    text-align: center;
+}
+
+mat-card{
+    display: flex;
+    width: 90%;
+}
+
+.inputResumen{
+    width: 100%;
+}
+
+
