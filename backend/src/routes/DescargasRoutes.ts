@@ -9,7 +9,7 @@ class DescargasRoutes {
     }
 
     config(): void{
-        this.router.get('/:id', descargasController.listOfDescargas)
+        this.router.get('/usuario/:id', descargasController.listOfDescargas)
     }
 }
 

@@ -9,7 +9,7 @@ class UsuarioRoutes {
 
     config(): void {
         this.router.get('/', usuarioController.listOfEncuesta)
-        this.router.get('/:id', usuarioController.getOneEncuesta)
+        this.router.get('/descarga/:id', usuarioController.getOneEncuesta)
         this.router.post('/', usuarioController.createEncuesta)
         this.router.put('/:id', usuarioController.updateEncuesta)
         this.router.delete('/:id', usuarioController.deleteEncuesta)
