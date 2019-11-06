@@ -10,6 +10,7 @@ import { ReportComponent } from './componentes/report/report.component';
 import { PollComponent } from './componentes/poll/poll.component';
 import { ContentsComponent } from './componentes/contents/contents.component';
 import { DownloadComponent } from './componentes/download/download.component';
+import { EditPollComponent } from './componentes/editPoll/editPoll.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { DownloadComponent } from './componentes/download/download.component';
     PollComponent,
     HomeComponent,
     ContentsComponent,
-    DownloadComponent
+    DownloadComponent,
+    EditPollComponent
   ],
   imports: [
     BrowserModule,

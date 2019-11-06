@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { MatDialog } from '@Angular/material';
+import { EditPollComponent } from '../editPoll/editPoll.component';
 
 export interface ContensElement {
   title: string;
@@ -24,10 +26,17 @@ export class DownloadComponent {
 
   displayedColumns: string[] = ['title', 'extension', 'fecha', "action"];
   dataSource = ELEMENT_CONTENS;
-  constructor(private router: Router) { }
+  constructor(private router: Router, public dialog: MatDialog) { }
    
   navegatePoll(){
-    this.router.navigateByUrl('home/descargas/encuesta');
+    const dialogRef = this.dialog.open(EditPollComponent, {
+      width: '250px',
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+    });
+    // this.router.navigateByUrl('home/descargas/editar');
   }
 
 }
