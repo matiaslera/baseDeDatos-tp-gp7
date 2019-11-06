@@ -143,7 +143,7 @@ CREATE TABLE `encuestas` (
   `Descarga_ID_Descarga` int(11) NOT NULL,
   PRIMARY KEY (`id_encuesta`),
   KEY `fk_Encuesta_Descarga1_idx` (`Descarga_ID_Descarga`),
-  CONSTRAINT `fk_Encuesta_Descarga1` FOREIGN KEY (`Descarga_ID_Descarga`) REFERENCES `descarga` (`id_descarga`)
+  CONSTRAINT `fk_Encuesta_Descarga1` FOREIGN KEY (`Descarga_ID_Descarga`) REFERENCES `descargas` (`id_descarga`)
 ) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
