@@ -10,6 +10,7 @@ class Server {
     constructor() {
         this.app = express()
         this.config()
+
         this.route()
     }
     config(): void {
@@ -18,7 +19,7 @@ class Server {
         this.app.use(cors())
         this.app.use(express.json())
         this.app.use(express.urlencoded({ extended: false }))
-
+        
     }
 
     route(): void {

@@ -2,7 +2,7 @@ export default {
     database: {
         hots: 'localhost',
         user: 'root',
-        password: '1234',
+        password: 'swordartonline',
         database: 'tp_grupo_7'
     }
 }

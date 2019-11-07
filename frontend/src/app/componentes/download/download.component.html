@@ -11,30 +11,30 @@
       </mat-card-footer>
  </div>
 
-<mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+<mat-table [dataSource]="downloads" class="mat-elevation-z8">
   <!-- Position Column -->
   <ng-container matColumnDef="title">
     <mat-header-cell *matHeaderCellDef> Nombre </mat-header-cell>
-    <mat-cell *matCellDef="let element"> {{element.title}} </mat-cell>
+    <mat-cell *matCellDef="let dowload"> {{dowload.titulo}} </mat-cell>
   </ng-container>
 
   <!-- Name Column -->
   <ng-container matColumnDef="extension">
     <mat-header-cell *matHeaderCellDef> Extension </mat-header-cell>
-    <mat-cell *matCellDef="let element"> {{element.extension}} </mat-cell>
+    <mat-cell *matCellDef="let dowload "> {{dowload.extension_archivo}} </mat-cell>
   </ng-container>
 
   <!-- Weight Column -->
   <ng-container matColumnDef="fecha">
     <mat-header-cell *matHeaderCellDef> Fecha Descargado </mat-header-cell>
-    <mat-cell *matCellDef="let element">
-        {{element.fecha}}
+    <mat-cell *matCellDef="let dowload ">
+        {{dowload.fecha_descarga}}
       </mat-cell>
   </ng-container>
 
   <ng-container matColumnDef="action">
       <mat-header-cell *matHeaderCellDef> Accion </mat-header-cell>
-      <mat-cell *matCellDef="let element">
+      <mat-cell *matCellDef="let dowload ">
         <div class="deleteAndEdit">
         <button mat-raised-button color="primary" (click)="navegatePoll()">
           <mat-icon aria-hidden="false" aria-label="Example home icon">poll

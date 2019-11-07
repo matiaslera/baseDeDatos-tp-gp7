@@ -13,6 +13,7 @@ import { EditPollComponent } from './componentes/editPoll/editPoll.component';
 import { NewButtonComponent } from './componentes/newButton/newButton.component';
 import { AdminOfPollComponent } from './componentes/adminOfPoll/adminOfPoll.component';
 import { ToolbarComponent } from './componentes/toolbar/toolbar.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
    declarations: [
@@ -30,7 +31,8 @@ import { ToolbarComponent } from './componentes/toolbar/toolbar.component';
       BrowserModule,
       AppRoutingModule,
       BrowserAnimationsModule,
-      MaterialModule
+      MaterialModule,
+      HttpClientModule
    ],
    providers: [],
    bootstrap: [
