@@ -4,6 +4,7 @@ import { DownloadService } from 'src/app/service/download/Download.service';
 import { Download } from 'src/app/domain/Download';
 import { PollDownloadService } from 'src/app/service/pollDownload/pollDownload.service';
 import { Poll } from 'src/app/domain/Poll';
+import * as moment from 'moment';
 
 @Component({
   selector: 'app-download',
@@ -32,6 +33,9 @@ export class DownloadComponent implements OnInit {
       expediente.titulo.indexOf(nameDownload.value) >= 0
     );
     this.download.titulo=""
+  }
+  getDate(descarga:Download){
+    return moment(descarga.fecha_descarga).format("DD-MM-YYYY")
   }
   cantFilter(){
     return this.download.titulo== ""

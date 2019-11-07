@@ -42,7 +42,7 @@ class EncuestasController {
                 if (err) return res.status(500).json("error al consultar la encuesta" + err)
                 if (result.length > 0) { return res.json(result[0]); }
                 res.status(404).json("La encuesta no existe");
-            })
+            }) 
     }
 
 }

@@ -24,7 +24,7 @@
   <ng-container matColumnDef="fecha">
     <mat-header-cell *matHeaderCellDef> Fecha Descargado </mat-header-cell>
     <mat-cell *matCellDef="let dowload ">
-      {{dowload.fecha_descarga}}
+      {{getDate(dowload)}}
     </mat-cell>
   </ng-container>
 
@@ -32,9 +32,9 @@
     <mat-header-cell *matHeaderCellDef> Accion </mat-header-cell>
     <mat-cell *matCellDef="let dowload ">
       <div class="deleteAndEdit">
-        <button mat-raised-button color="primary" [routerLink]="['/home/descargas/encuesta',dowload.id_descarga,dowload.titulo]">
-          <mat-icon aria-hidden="false" aria-label="Example home icon">poll
-          </mat-icon>
+        <button mat-raised-button color="primary" [routerLink]="['/home/descargas/encuesta',dowload.id_descarga,dowload.titulo]"
+        matTooltip="Gestion de encuesta">
+          <i class="material-icons"> poll </i>
         </button>
       </div>
     </mat-cell>

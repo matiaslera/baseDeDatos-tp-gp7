@@ -3,16 +3,24 @@
   <div class="cardresumen">
     <mat-card-content>
       <div>
-        <h3>Puntaje: {{poll.puntaje}}</h3>
-        <h2>Resumen negativo</h2>
-        <h3>{{poll.resumen_positivo}}</h3>
-        <h2>resumen positivo</h2>
-        <h3>{{poll.resumen_negativo}}</h3>
+        <h2>Puntaje: </h2>
+        <button mat-fab [disableRipple]="true" color="primary">{{poll.puntaje}}</button>
+        <mat-divider></mat-divider>
+        <br>
+        <h2>Resumen positivo:</h2>
+        <button mat-button [disableRipple]="true" color="primary"><h3>{{poll.resumen_positivo}}</h3></button>
+        
+        <mat-divider></mat-divider>
+        <br>
+        <h2>Resumen negativo:</h2>
+        <button mat-button [disableRipple]="true" color="warn"><h3>{{poll.resumen_negativo}}</h3></button>
+        
+        <br>
       </div>
     </mat-card-content>
     <mat-card-footer>
-      <button class="editDeleteButton" mat-flat-button color="primary" (click)="openNewPoll()">editar</button>
-      <button class="editDeleteButton" mat-flat-button color="primary">eliminar</button>
+      <button class="editDeleteButton" mat-flat-button color="primary" (click)="editPoll()">Editar</button>
+      <button class="editDeleteButton" mat-flat-button color="primary"(click)="deletePoll()">Eliminar</button>
     </mat-card-footer>
   </div>
 </mat-card>

@@ -1,5 +1,8 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { Poll } from 'src/app/domain/Poll';
+import { PollDownloadService } from 'src/app/service/pollDownload/pollDownload.service';
+import { MatSnackBar } from '@Angular/material';
 
 @Component({
   selector: 'app-adminOfPoll',
@@ -10,12 +13,27 @@ export class AdminOfPollComponent implements OnInit {
 
   constructor(
     public dialogRef: MatDialogRef<AdminOfPollComponent>,
-    @Inject(MAT_DIALOG_DATA) public data) {}
+    @Inject(MAT_DIALOG_DATA) public data:Poll,public pollDownloadService: PollDownloadService,private snackBar: MatSnackBar) {}
 
   onNoClick(): void {
     this.dialogRef.close();
   }
+  async save(){
+    if(this.data.id_encuesta==null){
+      await this.pollDownloadService.newPoll(this.data)
+      this.openSnackBar("Encuesta guardada con exito")
+    }
+    else{
+      await this.pollDownloadService.editPoll(this.data)
+      this.openSnackBar("Encuesta editada con exito")
+    }
+  }
   ngOnInit() {
+  }
+  openSnackBar(message: string) {
+    this.snackBar.open(message, "", {
+      duration: 3000,
+    });
   }
 
 }
