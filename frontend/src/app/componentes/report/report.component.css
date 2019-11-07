@@ -9,8 +9,15 @@ h3{
 .inputDesde, .inputHasta{
 margin: auto;
 width: 1rem;
+
+}
+mat-form-field{
+    margin-right: 2rem;
 }
 
 h1{
     text-align: center;
+}
+.mainContainer{
+    padding: 1rem;
 }

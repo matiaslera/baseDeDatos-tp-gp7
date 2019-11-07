@@ -15,7 +15,10 @@ import { AdminOfPollComponent } from './componentes/adminOfPoll/adminOfPoll.comp
 import { ToolbarComponent } from './componentes/toolbar/toolbar.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { registerLocaleData } from '@angular/common';
+import localeEs from '@angular/common/locales/es'
 
+registerLocaleData(localeEs)
 @NgModule({
    declarations: [
       AppComponent,

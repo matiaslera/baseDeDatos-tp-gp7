@@ -1,56 +1,72 @@
-<h1>Reportes</h1>
-<mat-card-content class="contentFecha">
-  <div>
-    <h3>Rango de fechas</h3>
-    <mat-form-field appearance="outline">
+<app-toolbar [title]="'Reporte'"></app-toolbar>
+<div class="mainContainer">
+  <mat-card-content class="contentFecha">
+    <div>
+      <h3>Rango de fechas:</h3>
+      <mat-form-field appearance="outline">
+        <mat-label>Fecha desde</mat-label>
+        <input matInput [matDatepicker]="pickerFrom" placeholder="Seleccione fecha" [(ngModel)]="dateFrom">
+        <mat-datepicker-toggle matSuffix [for]="pickerFrom"></mat-datepicker-toggle>
+        <mat-datepicker #pickerFrom></mat-datepicker>
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Fecha hasta</mat-label>
+        <input matInput [matDatepicker]="pickerTo" placeholder="Seleccione fecha" [(ngModel)]="dateTo">
+        <mat-datepicker-toggle matSuffix [for]="pickerTo"></mat-datepicker-toggle>
+        <mat-datepicker #pickerTo></mat-datepicker>
+      </mat-form-field>
 
-      <mat-label>Desde</mat-label>
-      <input matInput placeholder="Desde" autofocus class="inputDesde">
-    </mat-form-field>
-    <mat-form-field appearance="outline">
-      <mat-label>Hasta</mat-label>
-      <input matInput type="text" placeholder="Hasta" class="inputHasta">
-    </mat-form-field>
-    
-      <button mat-raised-button color="primary">Aplicar</button>
-  </div>
-</mat-card-content>
-
-<mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+      <button mat-raised-button color="primary" [disabled]="isDeactivated()" (click)="filterReport()">Aplicar</button>
+    </div>
+  </mat-card-content>
+  <strong>Cantidad total de descargas en el rango: {{showAmountOfDownloads()}} </strong>
+  <br><br>
+  <mat-table [dataSource]="dataSource" class="mat-elevation-z8">
     <!-- Position Column -->
     <ng-container matColumnDef="name">
       <mat-header-cell *matHeaderCellDef> Titulo </mat-header-cell>
-      <mat-cell *matCellDef="let element"> {{element.name}} </mat-cell>
+      <mat-cell *matCellDef="let element"> {{element.titulo}} </mat-cell>
     </ng-container>
-  
+
     <!-- Name Column -->
     <ng-container matColumnDef="extension">
       <mat-header-cell *matHeaderCellDef> Extension </mat-header-cell>
-      <mat-cell *matCellDef="let element"> {{element.extension}} </mat-cell>
+      <mat-cell *matCellDef="let element"> {{element.extension_archivo}} </mat-cell>
     </ng-container>
-  
+
     <!-- Weight Column -->
     <ng-container matColumnDef="highScore">
       <mat-header-cell *matHeaderCellDef> Puntaje Mas Alto </mat-header-cell>
       <mat-cell *matCellDef="let element">
-          {{element.highScore}}
+        <p *ngIf="element.cantidad_encuestas_respondidas == 0">--sin encuestas--</p>
+        {{element.puntaje_maximo}}
       </mat-cell>
     </ng-container>
-  
-    <ng-container matColumnDef="averageScore">
-        <mat-header-cell *matHeaderCellDef> Puntaje Mas Alto </mat-header-cell>
-        <mat-cell *matCellDef="let element">
-            {{element.averageScore}}
-        </mat-cell>
-      </ng-container>
 
-      <ng-container matColumnDef="lowScore">
-          <mat-header-cell *matHeaderCellDef> Puntaje Mas Alto </mat-header-cell>
-          <mat-cell *matCellDef="let element">
-              {{element.lowScore}}
-          </mat-cell>
-        </ng-container>
-    
+    <ng-container matColumnDef="averageScore">
+      <mat-header-cell *matHeaderCellDef> Puntaje Promedio </mat-header-cell>
+      <mat-cell *matCellDef="let element">
+        <p *ngIf="element.cantidad_encuestas_respondidas == 0">--sin encuestas--</p>
+        {{element.puntaje_minimo}}
+      </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="lowScore">
+      <mat-header-cell *matHeaderCellDef> Puntaje Mas Bajo </mat-header-cell>
+      <mat-cell *matCellDef="let element">
+        <p *ngIf="element.cantidad_encuestas_respondidas == 0">--sin encuestas--</p>
+        {{element.puntaje_minimo}}
+      </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="downloadAmount">
+      <mat-header-cell *matHeaderCellDef> Cantidad de descargas </mat-header-cell>
+      <mat-cell *matCellDef="let element">
+        {{element.cantidad_descargas}}
+      </mat-cell>
+    </ng-container>
+
     <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
     <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
   </mat-table>
+</div>
