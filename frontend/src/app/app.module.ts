@@ -14,6 +14,7 @@ import { NewButtonComponent } from './componentes/newButton/newButton.component'
 import { AdminOfPollComponent } from './componentes/adminOfPoll/adminOfPoll.component';
 import { ToolbarComponent } from './componentes/toolbar/toolbar.component';
 import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
    declarations: [
@@ -32,7 +33,8 @@ import { HttpClientModule } from '@angular/common/http';
       AppRoutingModule,
       BrowserAnimationsModule,
       MaterialModule,
-      HttpClientModule
+      HttpClientModule,
+      FormsModule,
    ],
    providers: [],
    bootstrap: [

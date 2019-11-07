@@ -3,12 +3,12 @@
   <div class="inputFilter">
     <mat-form-field appearance="outline">
       <mat-label>Filtrado por nombre</mat-label>
-      <input matInput placeholder="eg: javi" autofocus >
+      <input matInput placeholder="eg: javi" autofocus #nameDownload [(ngModel)]="download.titulo" >
     </mat-form-field>
   </div>
     <mat-card-footer>
-        <button class="buttonBuscar" mat-flat-button color="primary">Buscar</button>
-      </mat-card-footer>
+      <button class="buttonBuscar" mat-flat-button color="primary"  (click)="filterDownload(nameDownload)">Buscar</button>
+    </mat-card-footer>
  </div>
 
 <mat-table [dataSource]="downloads" class="mat-elevation-z8">
