@@ -255,7 +255,7 @@ DELIMITER ;;
 CREATE DEFINER=`root`@`localhost` PROCEDURE `reporte`(in fecha1 date, in fecha2 date)
 BEGIN
 select C.titulo, C.extension_archivo, count(D.contenido_id_contenido)as cantidad_descargas,
-max(E.puntaje)as puntaje_minimo,min(E.puntaje)as puntaje_maximo ,avg(E.puntaje)as promedio_puntaje
+max(E.puntaje)as puntaje_maximo,min(E.puntaje)as puntaje_minimo ,avg(E.puntaje)as promedio_puntaje
 ,count(E.Descarga_ID_Descarga)as cantidad_encuestas_respondidas
 from descargas as D
 left join encuestas as E on E.Descarga_ID_Descarga = D.id_descarga
