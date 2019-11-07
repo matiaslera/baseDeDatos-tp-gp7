@@ -11,7 +11,7 @@ import { AdminOfPollComponent } from './componentes/adminOfPoll/adminOfPoll.comp
 const routes: Routes = [
   {path: 'home', component: HomeComponent},
   {path: 'home/descargas', component: DownloadComponent},
-  {path: 'home/descargas/editar', component: EditPollComponent},
+  {path: 'home/descargas/editar/:id', component: EditPollComponent},
   {path: 'home/encuesta/nueva', component: NewButtonComponent},
   {path: 'home/encuesta/nueva/id', component: AdminOfPollComponent},
   {path: 'home/reporte', component: ReportComponent},

@@ -17,8 +17,8 @@ export class DownloadComponent implements OnInit {
   constructor(private router: Router, private downloadService: DownloadService) { }
   downloads: Download[]
   backend: Download[]
-  navegatePoll() {
-    this.router.navigateByUrl('home/descargas/editar');
+  navegatePoll(download: Download) {
+    this.router.navigateByUrl('home/descargas/editar/' + download.id_descarga)
   }
 
   async ngOnInit() {
