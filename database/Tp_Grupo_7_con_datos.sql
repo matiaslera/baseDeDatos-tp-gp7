@@ -1,5 +1,3 @@
-CREATE DATABASE  IF NOT EXISTS `tp_grupo_7` /*!40100 DEFAULT CHARACTER SET utf8 */;
-USE `tp_grupo_7`;
 -- MariaDB dump 10.17  Distrib 10.4.8-MariaDB, for Win64 (AMD64)
 --
 -- Host: 127.0.0.1    Database: tp_grupo_7
@@ -144,7 +142,7 @@ CREATE TABLE `encuestas` (
   PRIMARY KEY (`id_encuesta`),
   KEY `fk_Encuesta_Descarga1_idx` (`Descarga_ID_Descarga`),
   CONSTRAINT `fk_Encuesta_Descarga1` FOREIGN KEY (`Descarga_ID_Descarga`) REFERENCES `descargas` (`id_descarga`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -153,7 +151,7 @@ CREATE TABLE `encuestas` (
 
 LOCK TABLES `encuestas` WRITE;
 /*!40000 ALTER TABLE `encuestas` DISABLE KEYS */;
-INSERT INTO `encuestas` VALUES (1,8,'Velocidad estable','Descargo lento',16),(2,5,'Muy buena calidad','Descargo de manera inestable',17),(3,9,'Exelente cancion','NADA',7),(4,10,'Se bajo rapido buena cancion','NADA',11),(5,3,'NADA!','Bajo lentisimo',5),(6,6,'Aceptable velocidad','Inestabilidad de red',9),(7,8,'Muuy buena cancion bajo rapido','le falta calidad de sonido',19),(8,1,'MALISIMO','DIO ERROR NI SE DESCARGO MALA PAGINA',20);
+INSERT INTO `encuestas` VALUES (1,8,'Velocidad estable','Descargo lento',16),(2,5,'Muy buena calidad','Descargo de manera inestable',17),(3,9,'Exelente cancion','NADA',7),(4,10,'Se bajo rapido buena cancion','NADA',11),(5,3,'NADA!','Bajo lentisimo',5),(6,6,'Aceptable velocidad','Inestabilidad de red',9),(7,8,'Muuy buena cancion bajo rapido','le falta calidad de sonido',19),(8,1,'MALISIMO','DIO ERROR NI SE DESCARGO MALA PAGINA',20),(9,1,'temaso pero no anda descarga','NO DEscarGA',18);
 /*!40000 ALTER TABLE `encuestas` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -240,6 +238,38 @@ LOCK TABLES `usuarios` WRITE;
 INSERT INTO `usuarios` VALUES (1,'Javier','Gomez','1997-03-16',':D'),(2,'Nicolas','Dorado','1992-09-11','1234'),(3,'Matias','Maldonado','1994-11-16','asdf');
 /*!40000 ALTER TABLE `usuarios` ENABLE KEYS */;
 UNLOCK TABLES;
+
+--
+-- Dumping routines for database 'tp_grupo_7'
+--
+/*!50003 DROP PROCEDURE IF EXISTS `reporte` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8 */ ;
+/*!50003 SET character_set_results = utf8 */ ;
+/*!50003 SET collation_connection  = utf8_general_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'NO_AUTO_VALUE_ON_ZERO' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `reporte`(in fecha1 date, in fecha2 date)
+BEGIN
+select C.titulo, C.extension_archivo, count(D.contenido_id_contenido)as cantidad_descargas,
+max(E.puntaje)as puntaje_minimo,min(E.puntaje)as puntaje_maximo ,avg(E.puntaje)as promedio_puntaje
+,count(E.Descarga_ID_Descarga)as cantidad_encuestas_respondidas
+from descargas as D
+left join encuestas as E on E.Descarga_ID_Descarga = D.id_descarga
+left join contenidos as C on C.id_contenido = D.contenido_id_contenido
+where 
+	(fecha1 is null and fecha2 is null or (D.fecha_descarga between fecha1 and fecha2))
+group by D.contenido_id_contenido
+order by cantidad_descargas desc;
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -250,4 +280,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-11-06 14:51:56
+-- Dump completed on 2019-11-06 23:30:18

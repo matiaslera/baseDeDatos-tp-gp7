@@ -8,7 +8,6 @@ class EncuestasRoutes {
     }
 
     config(): void {
-        this.router.get('/', encuestasController.listOfEncuesta)
         this.router.get('/descarga/:id', encuestasController.getOneEncuesta)
         this.router.post('/', encuestasController.createEncuesta)
         this.router.put('/:id', encuestasController.updateEncuesta)
