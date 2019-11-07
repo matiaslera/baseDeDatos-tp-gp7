@@ -9,7 +9,7 @@ import { REST_SERVER_URL } from '../configuration';
 export class PollDownloadService {
   constructor(private httpCLient: HttpClient){}
 
-  async getPoll(idDescarga: number) {
-   return await this.httpCLient.get<Poll>(REST_SERVER_URL + "/encuestas/descarga/" + idDescarga).toPromise()
+  async getPoll(idDescarga:string) {
+   return await this.httpCLient.get<Poll>(REST_SERVER_URL + "/encuestas/descarga/" + parseInt(idDescarga)).toPromise()
   }
 }

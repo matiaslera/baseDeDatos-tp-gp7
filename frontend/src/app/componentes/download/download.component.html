@@ -1,15 +1,11 @@
-<app-toolbar [title]= "'Descargas del usuario'"></app-toolbar>
-<div class="cardFilter" >
-  <div class="inputFilter">
-    <mat-form-field appearance="outline">
-      <mat-label>Filtrado por nombre</mat-label>
-      <input matInput placeholder="eg: javi" autofocus #nameDownload [(ngModel)]="download.titulo" >
-    </mat-form-field>
-  </div>
-    <mat-card-footer>
-      <button class="buttonBuscar" mat-flat-button color="primary"  (click)="filterDownload(nameDownload)">Buscar</button>
-    </mat-card-footer>
- </div>
+<app-toolbar [title]="'Descargas del usuario'"></app-toolbar>
+<mat-form-field appearance="outline">
+  <mat-label>Filtrado por nombre</mat-label>
+  <input matInput placeholder="EJ: Killer queeen" autofocus #nameDownload [(ngModel)]="download.titulo">
+</mat-form-field>
+
+<button class="buttonBuscar" mat-flat-button color="primary" (click)="filterDownload(nameDownload)" [disabled]="cantFilter()">Buscar</button>
+
 
 <mat-table [dataSource]="downloads" class="mat-elevation-z8">
   <!-- Position Column -->
@@ -28,20 +24,21 @@
   <ng-container matColumnDef="fecha">
     <mat-header-cell *matHeaderCellDef> Fecha Descargado </mat-header-cell>
     <mat-cell *matCellDef="let dowload ">
-        {{dowload.fecha_descarga}}
-      </mat-cell>
+      {{dowload.fecha_descarga}}
+    </mat-cell>
   </ng-container>
 
   <ng-container matColumnDef="action">
-      <mat-header-cell *matHeaderCellDef> Accion </mat-header-cell>
-      <mat-cell *matCellDef="let dowload ">
-        <div class="deleteAndEdit">
-        <button mat-raised-button color="primary" (click)="navegatePoll(dowload)">
+    <mat-header-cell *matHeaderCellDef> Accion </mat-header-cell>
+    <mat-cell *matCellDef="let dowload ">
+      <div class="deleteAndEdit">
+        <button mat-raised-button color="primary" [routerLink]="['/home/descargas/encuesta',dowload.id_descarga,dowload.titulo]">
           <mat-icon aria-hidden="false" aria-label="Example home icon">poll
           </mat-icon>
         </button>
-      </div> </mat-cell>
-    </ng-container>
+      </div>
+    </mat-cell>
+  </ng-container>
   <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
   <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
 </mat-table>

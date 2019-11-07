@@ -21,3 +21,22 @@ mat-card-footer{
 .editDeleteButton{
     margin-right: 1rem;
 }
+main{
+    height: 85vh;
+    margin: 1rem;
+    display: flex;
+}
+.buttonOpcions{
+    margin: auto;
+    width: 50rem;
+    text-align: center;
+}
+
+.buttonEncuestas, .buttonReporte{
+    margin: 5rem;
+    padding: 2rem 4rem 2rem 4rem;
+    border-radius: 10px; 
+    -webkit-box-shadow: 18px -12px 49px -7px rgba(0,0,0,0.75);
+    -moz-box-shadow: 18px -12px 49px -7px rgba(0,0,0,0.75);
+    box-shadow: 18px -12px 49px -7px rgba(0,0,0,0.75);
+}

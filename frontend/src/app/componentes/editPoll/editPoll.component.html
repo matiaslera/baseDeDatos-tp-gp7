@@ -1,20 +1,26 @@
-<app-toolbar [title]= "'encuesta de'"></app-toolbar>
-<mat-card class="matCardPoll">
-    <div class="cardresumen">
-      <mat-card-content>
-        <div  >
-          <h3>Puntaje: {{poll.puntaje}}</h3>
-          <h2>Resumen negativo</h2>
-          <h3>{{poll.resumen_positivo}}</h3>
-          <h2>resumen positivo</h2>
-          <h3>{{poll.resumen_negativo}}</h3>
-        </div>
-      </mat-card-content>
-      <mat-card-footer>
-        <button class="editDeleteButton" mat-flat-button color="primary"
-           (click)="openNewPoll()">editar</button>
-          <button class="editDeleteButton" mat-flat-button color="primary"
-          >eliminar</button>
-      </mat-card-footer>
-    </div>
-  </mat-card>
+<app-toolbar [title]="titulo"></app-toolbar>
+<mat-card class="matCardPoll" *ngIf="poll.id_encuesta!= null">
+  <div class="cardresumen">
+    <mat-card-content>
+      <div>
+        <h3>Puntaje: {{poll.puntaje}}</h3>
+        <h2>Resumen negativo</h2>
+        <h3>{{poll.resumen_positivo}}</h3>
+        <h2>resumen positivo</h2>
+        <h3>{{poll.resumen_negativo}}</h3>
+      </div>
+    </mat-card-content>
+    <mat-card-footer>
+      <button class="editDeleteButton" mat-flat-button color="primary" (click)="openNewPoll()">editar</button>
+      <button class="editDeleteButton" mat-flat-button color="primary">eliminar</button>
+    </mat-card-footer>
+  </div>
+</mat-card>
+
+<div class="buttonOpcions" *ngIf="poll.id_encuesta== null">
+  <br>
+  <br>
+  <br>
+  <h1>No ha cargado ninguna encuesta para esta descarga</h1>
+  <button mat-raised-button color="primary" class="buttonEncuestas" (click)="openNewPoll()">Nueva encuesta</button>
+</div>

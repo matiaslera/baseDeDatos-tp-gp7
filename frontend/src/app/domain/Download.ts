@@ -1,6 +1,6 @@
 export class Download{
     id_descarga: number
-    titulo: string
+    titulo: string=""
     extension_archivo: string
     fecha_descarga
 

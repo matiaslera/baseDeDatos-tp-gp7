@@ -11,17 +11,19 @@ import { Poll } from 'src/app/domain/Poll';
   styleUrls: ['./editPoll.component.css']
 })
 export class EditPollComponent implements  OnInit {
-  poll : Poll 
-  idDownload: number = parseInt(this.route.snapshot.paramMap.get("id"))
+  poll : Poll = new Poll
+  titulo: string   
   constructor(private route: ActivatedRoute, private pollDownloadService: PollDownloadService, public dialog: MatDialog){
   }
-  async ngOnInit() {
-    try {
-      this.poll = await this.pollDownloadService.getPoll(this.idDownload)
-    } catch (error) {
-      console.error(error)
-    }
-    console.log(this.poll)
+  ngOnInit() {
+    this.route.params.subscribe(routeParams => {
+      this.getPool(routeParams.id)
+      this.titulo= "Encuesta sobre la descarga de "+routeParams.nombre   
+    })
+  
+  }
+  async getPool(id:string){
+    this.poll= await this.pollDownloadService.getPoll(id)
   }
 
   openNewPoll(){
