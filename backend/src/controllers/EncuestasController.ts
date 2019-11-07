@@ -3,11 +3,6 @@ import pool from '../database'
 import { promises } from 'fs';
 
 class EncuestasController {
-    public async listOfEncuesta(req: Request, res: Response) {
-        await pool.query('SELECT * FROM encuestas',
-            function (err, result, fields) { if (err) throw err; res.json(result); });
-    }
-
     public async createEncuesta(req: Request, res: Response): Promise<void> {
         await pool.query('INSERT INTO encuestas set ?', [req.body]
             , function (err, result, fields) {

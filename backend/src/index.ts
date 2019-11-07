@@ -1,7 +1,9 @@
 import express, { Application } from 'express';
 import indexRoutes from './routes/indexRoutes'
 import encuestasRoutes from './routes/EncuestasRoutes'
-import descargasRoutes from './routes/descargasRoutes'
+import descargasRoutes from './routes/DescargasRoutes'
+import reporteRoutes from './routes/ReporteRoutes'
+
 
 import morgan from 'morgan'
 import cors from 'cors'
@@ -25,6 +27,7 @@ class Server {
         this.app.use('/', indexRoutes)
         this.app.use('/encuestas', encuestasRoutes)
         this.app.use('/descargas', descargasRoutes)
+        this.app.use('/reporte', reporteRoutes)
     }
     start(): void {
         this.app.listen(this.app.get('port'), () => {
