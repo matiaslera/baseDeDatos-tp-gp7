@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { DownloadService } from 'src/app/service/download/Download.service';
+import { DownloadService, USER_ID } from 'src/app/service/download/Download.service';
 import { Download } from 'src/app/domain/Download';
 import { PollDownloadService } from 'src/app/service/pollDownload/pollDownload.service';
 import { Poll } from 'src/app/domain/Poll';
@@ -18,6 +18,7 @@ export class DownloadComponent implements OnInit {
   constructor(private router: Router, private downloadService: DownloadService, private pollDownloadService: PollDownloadService) { }
   downloads: Download[]
   backend: Download[]
+  title = "Descargas del usuario "+USER_ID
    async ngOnInit() {
     try {
       this.downloads = await this.downloadService.getdownloads()

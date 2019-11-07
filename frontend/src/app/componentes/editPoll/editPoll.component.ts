@@ -37,6 +37,7 @@ export class EditPollComponent implements OnInit {
       width: '500px',
     });
     dialogRef.afterClosed().subscribe(result => {
+      if(result)
       this.router.navigate(['/home/descargas'])
     });
   }
@@ -46,13 +47,14 @@ export class EditPollComponent implements OnInit {
       width: '500px',
     });
     dialogRef.afterClosed().subscribe(result => {
+      if(result)
       this.router.navigate(['/home/descargas'])
     });
   }
 
   deletePoll() {
     this.pollDownloadService.deletePoll(this.poll.id_encuesta.toString())
-    this.openSnackBar("Encuesta eliminado con exito") 
+    this.openSnackBar("Encuesta eliminada con exito") 
     this.router.navigate(['/home/descargas'])
   }
   openSnackBar(message: string) {

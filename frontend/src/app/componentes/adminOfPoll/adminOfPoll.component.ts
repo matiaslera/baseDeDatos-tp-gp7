@@ -35,5 +35,8 @@ export class AdminOfPollComponent implements OnInit {
       duration: 3000,
     });
   }
-
+  cantSave(){
+    return this.data.puntaje == null || this.data.resumen_negativo == null|| this.data.resumen_positivo == null
+    ||this.data.resumen_negativo == "" ||this.data.resumen_positivo == ""
+  }
 }
