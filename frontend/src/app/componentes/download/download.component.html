@@ -1,4 +1,4 @@
-<app-toolbar [title]="title"></app-toolbar>
+<app-toolbar [title]="title" [icon]="'get_app'"></app-toolbar>
 <mat-form-field appearance="outline">
   <mat-label>Filtrado por nombre</mat-label>
   <input matInput placeholder="EJ: Killer queeen" autofocus #nameDownload [(ngModel)]="download.titulo">
@@ -34,7 +34,7 @@
       <div class="deleteAndEdit">
         <button mat-raised-button color="primary" [routerLink]="['/home/descargas/encuesta',dowload.id_descarga,dowload.titulo]"
         matTooltip="Gestion de encuesta">
-          <i class="material-icons"> poll </i>
+          <i class="material-icons">create</i>
         </button>
       </div>
     </mat-cell>
