@@ -1,3 +1,5 @@
+CREATE DATABASE  IF NOT EXISTS `tp_grupo_7` /*!40100 DEFAULT CHARACTER SET utf8mb4 */;
+USE `tp_grupo_7`;
 -- MariaDB dump 10.17  Distrib 10.4.8-MariaDB, for Win64 (AMD64)
 --
 -- Host: 127.0.0.1    Database: tp_grupo_7
@@ -113,7 +115,7 @@ CREATE TABLE `descargas` (
   KEY `fk_Descarga_Usuario1_idx` (`usuario_id_usuario`),
   CONSTRAINT `fk_Descarga_Contenido1` FOREIGN KEY (`contenido_id_contenido`) REFERENCES `contenidos` (`id_contenido`),
   CONSTRAINT `fk_Descarga_Usuario1` FOREIGN KEY (`usuario_id_usuario`) REFERENCES `usuarios` (`id_usuario`)
-) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=66 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -122,7 +124,7 @@ CREATE TABLE `descargas` (
 
 LOCK TABLES `descargas` WRITE;
 /*!40000 ALTER TABLE `descargas` DISABLE KEYS */;
-INSERT INTO `descargas` VALUES (1,2,'2019-10-25',7,1),(2,1,'2019-10-25',9,1),(3,1,'2019-10-26',5,2),(4,2,'2019-10-27',12,3),(5,6,'2019-10-28',22,2),(6,11,'2019-10-29',20,3),(7,2,'2019-10-29',18,1),(8,2,'2019-10-29',13,3),(9,3,'2019-10-29',5,2),(10,2,'2019-10-30',6,1),(11,6,'2019-10-31',1,1),(12,14,'2019-11-01',11,3),(13,1,'2019-11-01',10,2),(14,1,'2019-11-02',12,1),(15,0,'2019-11-03',14,3),(16,2,'2019-11-03',21,1),(17,19,'2019-11-03',3,1),(18,3,'2019-11-04',3,3),(19,3,'2019-11-05',12,3),(20,3,'2019-11-06',11,2);
+INSERT INTO `descargas` VALUES (1,2,'2019-10-25',7,1),(2,1,'2019-10-25',9,1),(3,1,'2019-10-26',5,2),(4,2,'2019-10-27',12,3),(5,6,'2019-10-28',22,2),(6,11,'2019-10-29',20,3),(7,2,'2019-10-29',18,1),(8,2,'2019-10-29',13,3),(9,3,'2019-10-29',5,2),(10,2,'2019-10-30',6,1),(11,6,'2019-10-31',1,1),(12,14,'2019-11-01',11,3),(13,1,'2019-11-01',10,2),(14,1,'2019-11-02',12,1),(15,0,'2019-11-03',14,3),(16,2,'2019-11-03',21,1),(17,19,'2019-11-03',3,1),(18,3,'2019-11-04',3,3),(19,3,'2019-11-05',12,3),(20,3,'2019-11-06',11,2),(21,2,'2019-10-25',7,1),(22,1,'2019-10-25',9,1),(23,1,'2019-10-26',5,2),(24,2,'2019-10-27',12,3),(25,6,'2019-10-28',22,2),(26,11,'2019-10-29',20,3),(27,2,'2019-10-29',18,1),(28,2,'2019-10-29',13,3),(29,3,'2019-10-29',5,2),(30,2,'2019-10-30',6,1),(31,6,'2019-10-31',1,1),(32,14,'2019-11-01',11,3),(33,1,'2019-11-01',10,2),(34,1,'2019-11-02',12,1),(35,0,'2019-11-03',14,3),(36,2,'2019-11-03',21,1),(37,19,'2019-11-03',3,1),(38,3,'2019-11-04',3,3),(39,3,'2019-11-05',12,3),(40,3,'2019-11-06',11,2),(41,2,'2019-09-02',20,1),(42,1,'2019-09-08',2,2),(43,1,'2019-09-11',5,3),(44,2,'2019-09-12',1,1),(45,6,'2019-09-16',15,1),(46,11,'2019-09-22',22,2),(47,2,'2019-09-23',9,1),(48,2,'2019-09-24',6,3),(49,3,'2019-09-25',14,1),(50,2,'2019-09-27',11,2),(51,6,'2019-09-29',21,2),(52,14,'2019-09-30',11,1),(53,1,'2019-10-01',16,2),(54,1,'2019-10-12',10,3),(55,0,'2019-10-14',8,1),(56,2,'2019-10-16',3,1),(57,19,'2019-10-17',17,3),(58,3,'2019-10-18',7,1),(59,3,'2019-10-20',13,3),(60,3,'2019-10-22',12,1),(61,7,'2019-10-24',18,2),(62,9,'2019-10-25',19,3),(63,2,'2019-10-28',10,1),(64,1,'2019-10-29',8,3),(65,7,'2019-11-01',3,1);
 /*!40000 ALTER TABLE `descargas` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -142,7 +144,7 @@ CREATE TABLE `encuestas` (
   PRIMARY KEY (`id_encuesta`),
   KEY `fk_Encuesta_Descarga1_idx` (`Descarga_ID_Descarga`),
   CONSTRAINT `fk_Encuesta_Descarga1` FOREIGN KEY (`Descarga_ID_Descarga`) REFERENCES `descargas` (`id_descarga`)
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=26 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -151,7 +153,7 @@ CREATE TABLE `encuestas` (
 
 LOCK TABLES `encuestas` WRITE;
 /*!40000 ALTER TABLE `encuestas` DISABLE KEYS */;
-INSERT INTO `encuestas` VALUES (1,8,'Velocidad estable','Descargo lento',16),(2,5,'Muy buena calidad','Descargo de manera inestable',17),(3,9,'Exelente cancion','NADA',7),(4,10,'Se bajo rapido buena cancion','NADA',11),(5,3,'NADA!','Bajo lentisimo',5),(6,6,'Aceptable velocidad','Inestabilidad de red',9),(7,8,'Muuy buena cancion bajo rapido','le falta calidad de sonido',19),(8,1,'MALISIMO','DIO ERROR NI SE DESCARGO MALA PAGINA',20),(9,1,'temaso pero no anda descarga','NO DEscarGA',18);
+INSERT INTO `encuestas` VALUES (1,8,'Velocidad estable','Descargo lento',16),(2,7,'Muy buena calidad','Descargo de manera inestable',17),(3,9,'Exelente cancion','NADA',7),(4,10,'Se bajo rapido buena cancion','NADA',11),(5,3,'NADA!','Bajo lentisimo',5),(6,6,'Aceptable velocidad','Inestabilidad de red',9),(7,8,'Muuy buena cancion bajo rapido','le falta calidad de sonido',19),(8,1,'MALISIMO','DIO ERROR NI SE DESCARGO MALA PAGINA',20),(9,1,'temaso pero no anda descarga','NO DEscarGA',18),(10,10,'ok','nada',65),(11,8,'Velocidad estable','Descargo lento',21),(12,9,'Muy buena calidad','Descargo de manera inestable',22),(13,2,'Exelente cancion','NADA',23),(14,3,'Se bajo rapido buena cancion','NADA',24),(15,6,'NADA!','Bajo lentisimo',25),(16,5,'Aceptable velocidad','Inestabilidad de red',26),(17,10,'Muuy buena cancion bajo rapido','le falta calidad de sonido',27),(18,1,'MALISIMO','DIO ERROR NI SE DESCARGO MALA PAGINA',28),(19,1,'temaso pero no anda descarga','NO DEscarGA',29),(20,4,'ok','todo',30),(21,4,'Velocidad estable','Descargo lento',31),(22,9,'Muy buena calidad','Descargo de manera inestable',32),(23,5,'Exelente cancion','NADA',33),(24,10,'Se bajo rapido buena cancion','NADA',34),(25,7,'Se bajo rapido buena cancion','NADA',35);
 /*!40000 ALTER TABLE `encuestas` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -259,7 +261,7 @@ max(E.puntaje)as puntaje_maximo,min(E.puntaje)as puntaje_minimo ,avg(E.puntaje)a
 ,count(E.Descarga_ID_Descarga)as cantidad_encuestas_respondidas
 from descargas as D
 left join encuestas as E on E.Descarga_ID_Descarga = D.id_descarga
-left join contenidos as C on C.id_contenido = D.contenido_id_contenido
+inner join contenidos as C on C.id_contenido = D.contenido_id_contenido
 where 
 	(fecha1 is null and fecha2 is null or (D.fecha_descarga between fecha1 and fecha2))
 group by D.contenido_id_contenido
@@ -280,4 +282,4 @@ DELIMITER ;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-11-06 23:30:18
+-- Dump completed on 2019-11-08 11:08:40

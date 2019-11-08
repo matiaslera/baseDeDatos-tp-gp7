@@ -9,7 +9,7 @@ import { MatSnackBar } from '@Angular/material';
   styleUrls: ['./report.component.css']
 })
 export class ReportComponent implements OnInit {
-  displayedColumns: string[] = ['name', 'extension', 'highScore', 'averageScore', 'lowScore', 'downloadAmount']
+  displayedColumns: string[] = ['name', 'extension', 'highScore', 'lowScore', 'averageScore', 'downloadAmount']
   dataSource: any
   dateFrom: Date = null
   dateTo: Date = null
@@ -21,8 +21,8 @@ export class ReportComponent implements OnInit {
 
   async filterReport() {
     if (this.dateTo < this.dateFrom) { this.openSnackBar("La fecha desde no puede ser mayor a fecha hasta"); return }
-    let d1 = moment(this.dateFrom)
-    let d2 = moment(this.dateTo)
+    let d1 = moment(this.dateFrom).format("YYYY-MM-DD")
+    let d2 = moment(this.dateTo).format("YYYY-MM-DD")
     this.dataSource = null
     this.dataSource = await this.reportService.getReportfiltered(d1, d2)
     this.dateFrom = null
@@ -33,6 +33,10 @@ export class ReportComponent implements OnInit {
   }
   showAmountOfDownloads() {
     const result = this.dataSource.reduce((sum, data) => sum + data.cantidad_descargas, 0)
+    return result
+  }
+  showAmountOfPolls() {
+    const result = this.dataSource.reduce((sum, data) => sum + data.cantidad_encuestas_respondidas, 0)
     return result
   }
 

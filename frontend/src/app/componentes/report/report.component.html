@@ -19,7 +19,11 @@
       <button mat-raised-button color="primary" [disabled]="isDeactivated()" (click)="filterReport()">Aplicar</button>
     </div>
   </mat-card-content>
-  <strong>Cantidad total de descargas en el rango: {{showAmountOfDownloads()}} </strong>
+ 
+  <strong>Cantidad total de descargas en el rango:  <button mat-mini-fab [disableRipple]="true" color="primary">{{showAmountOfDownloads()}}</button> </strong>
+  <strong class="gimmeSpace">Cantidad total de encuestas respondidas en el rango: <button mat-mini-fab [disableRipple]="true" color="primary">{{showAmountOfPolls()}} </button></strong>
+  
+  
   <br><br>
   <mat-table [dataSource]="dataSource" class="mat-elevation-z8">
     <!-- Position Column -->
@@ -43,19 +47,19 @@
       </mat-cell>
     </ng-container>
 
-    <ng-container matColumnDef="averageScore">
-      <mat-header-cell *matHeaderCellDef> Puntaje Promedio </mat-header-cell>
+    <ng-container matColumnDef="lowScore">
+      <mat-header-cell *matHeaderCellDef> Puntaje Mas Bajo </mat-header-cell>
       <mat-cell *matCellDef="let element">
         <p *ngIf="element.cantidad_encuestas_respondidas == 0">--sin encuestas--</p>
         {{element.puntaje_minimo}}
       </mat-cell>
     </ng-container>
 
-    <ng-container matColumnDef="lowScore">
-      <mat-header-cell *matHeaderCellDef> Puntaje Mas Bajo </mat-header-cell>
+    <ng-container matColumnDef="averageScore">
+      <mat-header-cell *matHeaderCellDef> Puntaje Promedio </mat-header-cell>
       <mat-cell *matCellDef="let element">
         <p *ngIf="element.cantidad_encuestas_respondidas == 0">--sin encuestas--</p>
-        {{element.puntaje_minimo}}
+        {{element.promedio_puntaje}}
       </mat-cell>
     </ng-container>
 
