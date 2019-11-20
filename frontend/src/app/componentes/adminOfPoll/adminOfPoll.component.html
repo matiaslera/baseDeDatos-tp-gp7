@@ -24,12 +24,14 @@
 
       <mat-form-field appearance="outline" class="inputResumen">
         <mat-label>resumen positivo</mat-label>
-        <textarea matInput type="text" placeholder="Texto libre" [(ngModel)]="data.resumen_positivo"></textarea>
+        <textarea matInput type="text" placeholder="Texto libre" [(ngModel)]="data.resumen_positivo"maxlength="45"></textarea>
+        <mat-hint align="end"> {{data.resumen_positivo.length}} / 45</mat-hint>
       </mat-form-field>
   
       <mat-form-field appearance="outline" class="inputResumen">
         <mat-label>resumen negativo</mat-label>
-        <textarea matInput type="text" placeholder="Texto libre" [(ngModel)]="data.resumen_negativo"></textarea>
+        <textarea matInput type="text" placeholder="Texto libre" maxlength="45" [(ngModel)]="data.resumen_negativo"></textarea>
+        <mat-hint align="end">{{data.resumen_negativo.length}} / 45</mat-hint>
       </mat-form-field>
     </mat-card-content>
     <div mat-dialog-actions>

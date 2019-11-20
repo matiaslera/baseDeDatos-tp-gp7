@@ -11,8 +11,8 @@ export class DownloadService {
 
   constructor(private httpCLient: HttpClient){}
 
-  async getdownloads() {
-    const downloads = await this.httpCLient.get<Download[]>(REST_SERVER_URL + "/descargas/usuario/"+USER_ID).toPromise()
+  async getdownloads(id:number) {
+    const downloads = await this.httpCLient.get<Download[]>(REST_SERVER_URL + "/descargas/usuario/"+id).toPromise()
     return downloads.map((download) => Download.fromJson(download))
   }
 

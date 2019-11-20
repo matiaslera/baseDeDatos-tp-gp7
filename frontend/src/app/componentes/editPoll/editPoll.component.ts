@@ -43,7 +43,7 @@ export class EditPollComponent implements OnInit {
   }
   editPoll() {
     const dialogRef = this.dialog.open(AdminOfPollComponent, {
-      data: this.poll,
+      data: Poll.fromJson(this.poll),
       width: '500px',
     });
     dialogRef.afterClosed().subscribe(result => {

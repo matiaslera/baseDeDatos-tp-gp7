@@ -12,9 +12,10 @@ import { EditPollComponent } from './componentes/editPoll/editPoll.component';
 import { AdminOfPollComponent } from './componentes/adminOfPoll/adminOfPoll.component';
 import { ToolbarComponent } from './componentes/toolbar/toolbar.component';
 import { HttpClientModule } from '@angular/common/http';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { registerLocaleData } from '@angular/common';
 import localeEs from '@angular/common/locales/es'
+import { LoginComponent } from './componentes/Login/Login.component';
 
 registerLocaleData(localeEs)
 @NgModule({
@@ -26,7 +27,8 @@ registerLocaleData(localeEs)
       DownloadComponent,
       EditPollComponent,
       AdminOfPollComponent,
-      ToolbarComponent
+      ToolbarComponent,
+      LoginComponent,
    ],
 
    entryComponents: [
@@ -39,6 +41,7 @@ registerLocaleData(localeEs)
       MaterialModule,
       HttpClientModule,
       FormsModule,
+      ReactiveFormsModule,
    ],
    providers: [],
    bootstrap: [

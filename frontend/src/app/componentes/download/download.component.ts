@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { DownloadService, USER_ID } from 'src/app/service/download/Download.service';
+import { DownloadService} from 'src/app/service/download/Download.service';
 import { Download } from 'src/app/domain/Download';
 import { PollDownloadService } from 'src/app/service/pollDownload/pollDownload.service';
 import { Poll } from 'src/app/domain/Poll';
 import * as moment from 'moment';
+import { LoginServiceService } from 'src/app/service/loginService/loginService.service';
 
 @Component({
   selector: 'app-download',
@@ -15,18 +16,19 @@ export class DownloadComponent implements OnInit {
   poll: Poll = new Poll
   download: Download = new Download
   displayedColumns: string[] = ['title', 'extension', 'fecha', "action"];
-  constructor(private router: Router, private downloadService: DownloadService, private pollDownloadService: PollDownloadService) { }
+  constructor(private router: Router, private downloadService: DownloadService, private pollDownloadService: PollDownloadService,private login:LoginServiceService) { }
   downloads: Download[]
   backend: Download[]
-  title = "Descargas del usuario "+USER_ID
+  title:string
    async ngOnInit() {
     try {
-      this.downloads = await this.downloadService.getdownloads()
+      this.downloads = await this.downloadService.getdownloads(this.login.userLooged.id_usuario)
 
       this.backend = this.downloads
     } catch (error) {
       console.error(error)
     }
+    this.title= "Descargas del usuario "+ this.login.userLooged.getFullName()
   }
   filterDownload(nameDownload) {
     this.downloads = this.backend

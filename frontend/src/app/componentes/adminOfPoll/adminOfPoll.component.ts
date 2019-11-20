@@ -20,10 +20,12 @@ export class AdminOfPollComponent implements OnInit {
   }
   async save(){
     if(this.data.id_encuesta==null){
+      debugger
       await this.pollDownloadService.newPoll(this.data)
       this.openSnackBar("Encuesta guardada con exito")
     }
     else{
+      debugger
       await this.pollDownloadService.editPoll(this.data)
       this.openSnackBar("Encuesta editada con exito")
     }
