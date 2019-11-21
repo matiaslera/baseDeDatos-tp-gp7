@@ -28,7 +28,7 @@ CREATE TABLE `categorias` (
   `id_categoria` int(11) NOT NULL AUTO_INCREMENT,
   `descripcion` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`id_categoria`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -37,6 +37,7 @@ CREATE TABLE `categorias` (
 
 LOCK TABLES `categorias` WRITE;
 /*!40000 ALTER TABLE `categorias` DISABLE KEYS */;
+INSERT INTO `categorias` VALUES (1,'Rock clasico'),(2,'Documento Facultad'),(3,'Rock nacional');
 /*!40000 ALTER TABLE `categorias` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -181,6 +182,7 @@ CREATE TABLE `es_clasificado` (
 
 LOCK TABLES `es_clasificado` WRITE;
 /*!40000 ALTER TABLE `es_clasificado` DISABLE KEYS */;
+INSERT INTO `es_clasificado` VALUES (1,2),(2,1),(3,1),(5,2),(6,2),(7,1),(8,3),(9,3),(10,3),(11,3),(12,3),(13,3),(14,3),(15,3),(16,3),(17,3),(18,1),(19,1),(20,1),(21,1),(22,1);
 /*!40000 ALTER TABLE `es_clasificado` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -248,20 +250,22 @@ UNLOCK TABLES;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
 /*!50003 SET @saved_cs_results     = @@character_set_results */ ;
 /*!50003 SET @saved_col_connection = @@collation_connection */ ;
-/*!50003 SET character_set_client  = utf8 */ ;
-/*!50003 SET character_set_results = utf8 */ ;
-/*!50003 SET collation_connection  = utf8_general_ci */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_general_ci */ ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
-/*!50003 SET sql_mode              = 'NO_AUTO_VALUE_ON_ZERO' */ ;
+/*!50003 SET sql_mode              = 'NO_ZERO_IN_DATE,NO_ZERO_DATE,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
 CREATE DEFINER=`root`@`localhost` PROCEDURE `reporte`(in fecha1 date, in fecha2 date)
 BEGIN
 select C.titulo, C.extension_archivo, count(D.contenido_id_contenido)as cantidad_descargas,
 max(E.puntaje)as puntaje_maximo,min(E.puntaje)as puntaje_minimo ,avg(E.puntaje)as promedio_puntaje
-,count(E.Descarga_ID_Descarga)as cantidad_encuestas_respondidas
+,count(E.Descarga_ID_Descarga)as cantidad_encuestas_respondidas,CA.descripcion
 from descargas as D
 left join encuestas as E on E.Descarga_ID_Descarga = D.id_descarga
 inner join contenidos as C on C.id_contenido = D.contenido_id_contenido
+left join es_clasificado as E_C on D.contenido_id_contenido = E_C.contenido_id_contenido
+left join categorias as CA on E_C.categoria_id_categoria = CA.id_categoria
 where 
 	(fecha1 is null and fecha2 is null or (D.fecha_descarga between fecha1 and fecha2))
 group by D.contenido_id_contenido
@@ -282,4 +286,4 @@ DELIMITER ;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-11-08 11:08:40
+-- Dump completed on 2019-11-21 19:53:25
