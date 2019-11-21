@@ -8,7 +8,6 @@ import { Component, OnInit, Input } from '@angular/core';
 export class ToolbarComponent implements OnInit {
   @Input() title: string
   @Input() icon: string =""
-  @Input() homeEnabled=true
   constructor() { }
 
   ngOnInit() {

@@ -1,7 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { ReportService } from 'src/app/service/reportService/report.service';
 import * as moment from 'moment';
 import { MatSnackBar } from '@Angular/material';
+import {MatSort} from '@angular/material/sort';
+import {MatTableDataSource} from '@angular/material/table';
 
 @Component({
   selector: 'app-report',
@@ -9,14 +11,18 @@ import { MatSnackBar } from '@Angular/material';
   styleUrls: ['./report.component.css']
 })
 export class ReportComponent implements OnInit {
-  displayedColumns: string[] = ['name', 'extension', 'highScore', 'lowScore', 'averageScore', 'downloadAmount']
+  displayedColumns: string[] = ['name', 'extension', 'highScore', 'lowScore', 'averageScore', 'downloadAmount','desc']
   dataSource: any
   dateFrom: Date = null
   dateTo: Date = null
+  data:any
+
+  
   constructor(private reportService: ReportService, private snackBar: MatSnackBar) { }
 
   async ngOnInit() {
-    this.dataSource = await this.reportService.getReportComplete()
+    this.data=await this.reportService.getReportComplete()
+    this.refreshData()
   }
 
   async filterReport() {
@@ -24,19 +30,20 @@ export class ReportComponent implements OnInit {
     let d1 = moment(this.dateFrom).format("YYYY-MM-DD")
     let d2 = moment(this.dateTo).format("YYYY-MM-DD")
     this.dataSource = null
-    this.dataSource = await this.reportService.getReportfiltered(d1, d2)
+    this.data = await this.reportService.getReportfiltered(d1, d2)
     this.dateFrom = null
     this.dateTo = null
+    this.refreshData()
   }
   isDeactivated() {
     return (this.dateFrom === null || this.dateTo === null)
   }
   showAmountOfDownloads() {
-    const result = this.dataSource.reduce((sum, data) => sum + data.cantidad_descargas, 0)
+    const result = this.data.reduce((sum, data) => sum + data.cantidad_descargas, 0)
     return result
   }
   showAmountOfPolls() {
-    const result = this.dataSource.reduce((sum, data) => sum + data.cantidad_encuestas_respondidas, 0)
+    const result = this.data.reduce((sum, data) => sum + data.cantidad_encuestas_respondidas, 0)
     return result
   }
 
@@ -44,5 +51,14 @@ export class ReportComponent implements OnInit {
     this.snackBar.open(message, "x", {
       duration: 2000,
     });
+  }
+
+  refreshData(){
+    this.dataSource=null
+    this.dataSource = new MatTableDataSource(this.data)
+  }
+  sort(){
+    this.data.sort((a,b) => (a.descripcion > b.descripcion) ? 1 : ((b.descripcion > a.descripcion) ? -1 : 0))
+    this.refreshData()
   }
 }
