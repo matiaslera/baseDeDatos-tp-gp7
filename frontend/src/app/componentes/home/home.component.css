@@ -2,6 +2,7 @@ main{
     height: 85vh;
     margin: 1rem;
     display: flex;
+    flex-direction: row;
 }
 .buttonOpcions{
     margin: auto;
@@ -10,10 +11,12 @@ main{
 }
 
 .buttonEncuestas, .buttonReporte{
-    margin: 5rem;
-    padding: 2rem 4rem 2rem 4rem;
-    border-radius: 10px; 
+    width: 20rem;
+    height: 12rem;
+    margin: 1rem;
+    
+    border-radius: 25px; 
     -webkit-box-shadow: 18px -12px 49px -7px rgba(0,0,0,0.75);
     -moz-box-shadow: 18px -12px 49px -7px rgba(0,0,0,0.75);
-    box-shadow: 18px -12px 49px -7px rgba(0,0,0,0.75);
+    box-shadow: 12px -8px 49px -7px rgba(0,0,0,0.75);
 }
